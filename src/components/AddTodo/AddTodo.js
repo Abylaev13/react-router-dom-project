@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { TodoContext } from '../../context/TodoContext';
 
 const AddTodo = () => {
 
     const [inpValue, setInpValue] = useState('');
+    const {addTask} = useContext(TodoContext)
+
+
+
     
     function handleClick(){
         let newObj = {
             task: inpValue
         }
-        
+        addTask(newObj)        
     }
     
 
