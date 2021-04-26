@@ -1,14 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { TodoContext } from '../../context/TodoContext';
 
 
 const TodoList = () => {
-    const { todos } = useContext(TodoContext);
-    console.log(todos)
+    const { todos, getTodosData } = useContext(TodoContext);
+    useEffect(() =>{
+        getTodosData()  
+       
+    },[])
+    
+
+  
     return (
-        <div>
-         
-        </div>
+        <ul>
+         {todos.map(item => (
+             <li key={item.id}><input type="checkbox"/>{item.task}</li>
+         ))}
+        </ul>
     );
 };
 

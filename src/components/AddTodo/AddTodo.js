@@ -11,9 +11,11 @@ const AddTodo = () => {
     
     function handleClick(){
         let newObj = {
-            task: inpValue
+            task: inpValue,
+            status: false
         }
-        addTask(newObj)        
+        addTask(newObj)  
+             
     }
     
 

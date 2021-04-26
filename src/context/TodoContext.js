@@ -9,11 +9,13 @@ const INIT_STATE = {
 }
 
 const reducer = (state=INIT_STATE, action) => {
-    switch(action) {
+      
+    switch(action.type) {
         case "GET_TODOS_DATA":     
             return{...state, todos: action.payload}
         default: return state
-    }                    
+    }                
+    
       
 }
 
@@ -26,9 +28,8 @@ const TodoContextProvider = ({children}) =>{
             type: "GET_TODOS_DATA",
             payload: data
         })
-
+        
     }
-
 
     const addTask = (newTask) => {
         axios.post('http://localhost:8000/todos', newTask)     
@@ -38,7 +39,8 @@ const TodoContextProvider = ({children}) =>{
     return (
         <TodoContext.Provider value={{
             todos: state.todos,
-            addTask
+            addTask,
+            getTodosData
         }}>
             {children}
         </TodoContext.Provider>
