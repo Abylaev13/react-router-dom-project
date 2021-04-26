@@ -34,7 +34,10 @@ const TodoContextProvider = ({children}) =>{
     const addTask = (newTask) => {
         axios.post('http://localhost:8000/todos', newTask)     
         getTodosData();
+        
     } 
+
+    // ээхххх
 
     return (
         <TodoContext.Provider value={{
